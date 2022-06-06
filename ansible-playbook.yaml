@@ -19,3 +19,27 @@
       - docker.io
       state: present
 
+  - name: Copy haproxy config
+    ansible.builtin.copy:
+      src: haproxy.cfg
+      dest: /root/haproxy.cfg
+      owner: root
+      group: root
+      mode: '0644'
+
+
+      # - name: Copy application Example
+      #   ansible.builtin.copy:
+      #     src: docker
+      #     dest: /root/docker
+      #     owner: root
+      #     group: root
+      #     mode: '0644'
+  
+      # - name: Run nginx image in docker container
+      #   docker:
+      #     name: nginx-container
+      #     image: nginx
+      #     state: reloaded
+      #     ports:
+      #     - "8080:80"
