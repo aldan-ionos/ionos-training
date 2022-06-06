@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  remote_user: root
+  
+  tasks:
+  - name: Disable Password Authentication
+    lineinfile:    
+      dest: /etc/ssh/sshd_config    
+      regex: '^PasswordAuthentication'    
+      line: "Password Authentication no"    
+      state: present    
+      backup: yes
+
+  - name: Install packages
+    apt:
+      pkg:
+      - haproxy
+      - docker.io
+      state: present
+

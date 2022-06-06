@@ -1,0 +1,7 @@
+Host test-server
+    IdentityFile $TEST_ID_RSA_PATH
+    IdentitiesOnly yes
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    User root
+    Hostname $PUBLIC_IP_SERVER
